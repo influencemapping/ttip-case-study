@@ -1,6 +1,9 @@
-
-bower_components
-node_modules
+node_modules/
+bower_components/
+.sass-cache/
+.tmp/
+dist/
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
