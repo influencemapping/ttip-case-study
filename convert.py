@@ -9,6 +9,7 @@ import os
 import json
 from pprint import pprint
 from normality import slugify
+from uuid import uuid4
 
 persons = {}
 organizations = {}
@@ -30,6 +31,7 @@ with open('data/ttip_correctiv_en.json', 'rb') as fh:
                     'name': job.get('organisation')
                 }
             m = {
+                'id' : uuid4().hex,
                 'role' : job.get('position'),
                 'organization_id': orgId,
                 'person_id': p['id']
