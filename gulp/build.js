@@ -7,6 +7,14 @@ var $ = require('gulp-load-plugins')({
 });
 
 module.exports = function(options) {
+  gulp.task('data', function () {
+    return gulp.src([
+      options.src + '/data/**/*.json',
+      options.tmp + '/serve/data/**/*.json'
+    ])
+      .pipe(gulp.dest(options.tmp + '/data/'));
+  });
+
   gulp.task('partials', function () {
     return gulp.src([
       options.src + '/app/**/*.html',
@@ -18,7 +26,7 @@ module.exports = function(options) {
         quotes: true
       }))
       .pipe($.angularTemplatecache('templateCacheHtml.js', {
-        module: 'ttipCaseStudy',
+        module: 'ttip',
         root: 'app'
       }))
       .pipe(gulp.dest(options.tmp + '/partials/'));
@@ -85,5 +93,5 @@ module.exports = function(options) {
     $.del([options.dist + '/', options.tmp + '/'], done);
   });
 
-  gulp.task('build', ['html', 'fonts', 'other']);
+  gulp.task('build', ['data', 'html', 'fonts', 'other']);
 };
