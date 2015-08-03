@@ -3,7 +3,7 @@
 describe('controllers', function(){
   var scope;
 
-  beforeEach(module('ttipCaseStudy'));
+  beforeEach(module('ttip'));
 
   beforeEach(inject(function($rootScope) {
     scope = $rootScope.$new();

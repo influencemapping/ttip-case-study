@@ -1,6 +1,9 @@
 'use strict';
 
-angular.module('ttipCaseStudy', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
+angular.module('ttip',
+  ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource',
+  'ui.router', 'ui.bootstrap',
+  'ttip.graph'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
