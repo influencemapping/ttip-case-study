@@ -3,7 +3,7 @@
 angular.module('ttip',
   ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource',
   'ui.router', 'ui.bootstrap',
-  'ttip.graph'])
+  'ttip.graph', 'ttip.services'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {

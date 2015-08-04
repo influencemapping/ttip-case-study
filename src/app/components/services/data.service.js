@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ttip.graph').
+angular.module('ttip.services').
   service('dataService', function($http, $q) {
 
     function getNodes() {
