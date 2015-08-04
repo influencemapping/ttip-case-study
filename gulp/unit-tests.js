@@ -26,16 +26,22 @@ module.exports = function(options) {
       options.src + '/**/*.html'
     ];
 
+    var moduleFiles = [
+      options.src + '/app/**/*.module.js'
+    ];
+
     var srcFiles = [
       options.src + '/app/**/*.js'
     ].concat(specFiles.map(function(file) {
       return '!' + file;
+    })).concat(moduleFiles.map(function(file) {
+      return '!' + file;
     }));
-
 
     gulp.src(srcFiles)
       .pipe(concat(function(files) {
         callback(bowerDeps.js
+          .concat(moduleFiles)
           .concat(_.pluck(files, 'path'))
           .concat(htmlFiles)
           .concat(specFiles));
@@ -44,12 +50,16 @@ module.exports = function(options) {
 
   function runTests (singleRun, done) {
     listFiles(function(files) {
+
+      console.log(files)
       karma.server.start({
         configFile: __dirname + '/../karma.conf.js',
         files: files,
         singleRun: singleRun,
         autoWatch: !singleRun
-      }, done);
+      }, function() {
+        done();
+      });
     });
   }
 

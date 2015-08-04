@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('ttip.graph', []);
+angular.module('ttip.graph', ['d3', 'underscore']);
